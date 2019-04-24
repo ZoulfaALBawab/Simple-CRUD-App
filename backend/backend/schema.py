@@ -1,9 +1,9 @@
 import graphene
-import backend.client.schema 
+import client.schema
 
 
-class Query(backend.client.schema.Query, graphene.ObjectType):
-        # This class extends all abstract apps level Queries and graphene.ObjectType
-        pass
+class Query(client.schema.Query, graphene.ObjectType):
+    pass
 
-schema = graphene.Schema(query=Query)
+
+schema = graphene.Schema(query=Query, mutation=Mutation)

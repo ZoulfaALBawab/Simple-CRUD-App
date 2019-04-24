@@ -7,15 +7,10 @@ class Client(models.Model):
     lastName = models.CharField(max_length=100)
     email = models.CharField(max_length=100)
 
-    def __str__(self):
-        return self.firstName
- 
-
-class Meta:
-    ordering = ('firstName')
+     
 
 
  
- 
+
  
  
