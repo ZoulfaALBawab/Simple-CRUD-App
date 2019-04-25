@@ -31,15 +31,15 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-   # 'corsheaders',            # added
-    'graphene_django',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'backend.client',                 # added
+    'corsheaders',            # added
+    'graphene_django',
+    'client',                 # added
 ]
 
 MIDDLEWARE = [
@@ -128,6 +128,6 @@ GRAPHENE = {
 
 
 #Connect it to frontend 
-#CORS_ORIGIN_WHITELIST = (
-#'localhost:3000/'
-#)
+CORS_ORIGIN_WHITELIST = (
+'localhost:3000/'
+)

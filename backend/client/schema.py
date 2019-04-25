@@ -17,19 +17,15 @@ class Query(graphene.ObjectType):
 
 #################################################
 
-class CreateLink(graphene.Mutation):
+
+class CreateClient(graphene.Mutation):
     id = graphene.Int()
     firstName = graphene.String()
     lastName = graphene.String()
     email = graphene.String()
 
-     class Arguments:
-        firstName = graphene.String()
-        lastName = graphene.String()
-        email = graphene.String()
-
-     def mutate(self, info, url, description):
-        client = Client(firstName=firstName, lastName=lastName, email=email)
+    def mutate(self, info, id, firstName, lastName, email):
+        client = Client(id=id, firstName=firstName, lastName=lastName, email=email)
         client.save()
 
         return CreateClient(
@@ -40,5 +36,7 @@ class CreateLink(graphene.Mutation):
         )
 
 
- class Mutation(graphene.ObjectType):
+class Mutation(graphene.ObjectType):
     create_client = CreateClient.Field()
+
+#################################################
