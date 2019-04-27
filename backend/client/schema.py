@@ -40,3 +40,6 @@ class Mutation(graphene.ObjectType):
     create_client = CreateClient.Field()
 
 #################################################
+
+class UpdateClient(graphene.Mutation):
+    
