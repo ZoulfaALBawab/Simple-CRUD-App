@@ -1,9 +1,11 @@
 import React from 'react';
-import './Home.css';
+import './EditClients.css';
 import Table from 'react-bootstrap/Table';
+import { Query } from "react-apollo";
+import gql from "graphql-tag";
 
 
-class Home extends React.Component {
+class EditClients extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -17,7 +19,9 @@ class Home extends React.Component {
   render() {
     return (
       <div>
-        <h1>HellOoOo App Component</h1>
+
+
+        <h2>Our Clients </h2>
         <Table class="table table-bordered table-dark">
           <thead>
             <tr>
@@ -25,11 +29,8 @@ class Home extends React.Component {
               <th>First Name</th>
               <th>Last Name</th>
               <th>Email</th>
-              <th>View</th>
               <th>Edit</th>
               <th>Delete</th>
-
-
             </tr>
           </thead>
           <tbody>
@@ -38,17 +39,13 @@ class Home extends React.Component {
               <td>Mark</td>
               <td>Otto</td>
               <td>@mdo</td>
-              <a href="#" class="btn btn-info btn-lg">
-                <span class="glyphicon glyphicon-trash"></span>
-              </a>
-              <a href="#" class="btn btn-info btn-lg">
+              <td>  <a href="#" class="btn btn-info btn-lg">
                 <span class="glyphicon glyphicon-pencil"></span>
-              </a>
-              <a href="#" class="btn btn-info btn-lg">
+              </a></td>
+              <td> <a href="#" class="btn btn-info btn-lg">
                 <span class="glyphicon glyphicon-trash"></span>
-              </a>
+              </a></td>
             </tr>
-
           </tbody>
         </Table>
       </div>
@@ -59,4 +56,4 @@ class Home extends React.Component {
   }
 }
 
-export default Home
+export default EditClients
