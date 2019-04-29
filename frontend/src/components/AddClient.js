@@ -4,6 +4,7 @@ import { createClient } from '../queriesAndMutstions/clients';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { Mutation } from 'react-apollo';
+import './AddClient.css';
 
 
 
@@ -38,6 +39,7 @@ class AddClient extends React.Component {
         this.setState({ email: event.target.value })
         console.log(this.state.email)
     }
+
     submitForm = () => {
 
         this.props.createClient({
@@ -58,11 +60,10 @@ class AddClient extends React.Component {
     render() {
         return (
             <Mutation mutation={createClient}>
-                {(createClientFunction, { data, loading }) => {
+                {(createClient, { data, loading }) => {
                     return (
                         <div>
-                            <h2>New Client Form</h2>
-                            <br />
+                            <h2 className="h2" >Add New Client</h2>
                             <Form>
                                 <Form.Group>
                                     <div class="col-xs-3">
@@ -88,13 +89,16 @@ class AddClient extends React.Component {
                                     </div>
 
                                 </Form.Group>
+                                <br />
 
-                                <Button variant="secondary">Add Client</Button>
+                                <Button className="btn" variant="secondary" >Add Client</Button>
                             </Form>
 
                         </div>
-                    );
-                }}
+
+                    )
+                }
+                }
 
             </Mutation>
 

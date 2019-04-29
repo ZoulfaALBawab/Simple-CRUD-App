@@ -19,10 +19,7 @@ class EditClients extends React.Component {
   render() {
     return (
       <div>
-
-
-        <h2>Our Clients </h2>
-        <Table class="table table-bordered table-dark">
+         <Table id="table" class="table table-bordered table-dark"  >
           <thead>
             <tr>
               <th>#</th>
