@@ -11,64 +11,32 @@ import './AddClient.css';
 class AddClient extends React.Component {
 
 
-    constructor(props) {
-        super(props)
-
-        this.state = {
-            firstName: '',
-            lastName: '',
-            email: ''
-
-        }
-        this.handleChangefirstName = this.handleChangefirstName.bind(this)
-        this.handleChangelastName = this.handleChangelastName.bind(this)
-        this.handleChangeemail = this.handleChangeemail.bind(this)
-        this.submitForm = this.submitForm.bind(this)
-
-    }
-
-    handleChangefirstName(event) {
-        this.setState({ firstName: event.target.value })
-        console.log(this.state.firstName)
-    }
-    handleChangelastName(event) {
-        this.setState({ lastName: event.target.value })
-        console.log(this.state.lastName)
-    }
-    handleChangeemail(event) {
-        this.setState({ email: event.target.value })
-        console.log(this.state.email)
-    }
-
-    submitForm = () => {
-
-        this.props.createClient({
-            variables: {
-                firstName: this.firstName.value,
-                lastName: this.lastName.value,
-                email: this.email.value
-
-            }
-        })
-
-    }
-
-
-
-
 
     render() {
+        let firstName;
+        let lastName;
+        let email;
         return (
             <Mutation mutation={createClient}>
                 {(createClient, { data, loading }) => {
                     return (
                         <div>
                             <h2 className="h2" >Add New Client</h2>
-                            <Form>
+                            <Form
+                                onSubmit={e => {
+                                    e.preventDefault();
+                                    createClient({ variables: { firstName: firstName.value, lastName: lastName.value, email: email.value } });
+                                    firstName.value = '';
+                                    lastName.value = '';
+                                    email.value = '';
+                                }}
+                            >
                                 <Form.Group>
                                     <div class="col-xs-3">
-                                        <Form.Label>First Name</Form.Label>
-                                        <Form.Control type="text" placeholder="Enter the First Name" class="form-control" id="ex2" value={this.state.firstName} onChange={this.handleChangefirstName} />
+                                        <Form.Label  >First Name</Form.Label>
+                                        <Form.Control type="text" placeholder="Enter the First Name" class="form-control" id="ex2" ref={node => {
+                                            firstName = node;
+                                        }} />
                                     </div>
 
                                 </Form.Group>
@@ -77,7 +45,9 @@ class AddClient extends React.Component {
                                     <div class="col-xs-3">
 
                                         <Form.Label>Last Name</Form.Label>
-                                        <Form.Control type="text" placeholder="Enter the Last Name" />
+                                        <Form.Control type="text" placeholder="Enter the Last Name" ref={node => {
+                                            firstName = node;
+                                        }} />
                                     </div>
 
                                 </Form.Group>
@@ -85,7 +55,9 @@ class AddClient extends React.Component {
                                 <Form.Group controlId="formBasicEmail">
                                     <div class="col-xs-3">
                                         <Form.Label>Email</Form.Label>
-                                        <Form.Control type="email" placeholder="Enter the Email" />
+                                        <Form.Control type="email" placeholder="Enter the Email" ref={node => {
+                                            firstName = node;
+                                        }} />
                                     </div>
 
                                 </Form.Group>
