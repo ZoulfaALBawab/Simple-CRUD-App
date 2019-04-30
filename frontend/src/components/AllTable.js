@@ -1,61 +1,59 @@
-import React from './node_modules/react';
-import './EditClients.css';
-import Table from './node_modules/react-bootstrap/Table';
-import { Query } from "./node_modules/react-apollo";
-import gql from "./node_modules/graphql-tag";
+import React from 'react';
+import './AllTable.css';
+import Table from 'react-bootstrap/Table';
+import { Query } from "react-apollo";
+import gql from "graphql-tag";
+import { clientsQuery } from '../queriesAndMutstions/clients'
 
+class AllTable extends React.Component {
 
-class EditClients extends React.Component {
-   
 
 
   render() {
-    const Clients = ({ getClients }) => (
-      <Query query={clientsQuery}>
-        {({ loading, error, data }) => {
-          if (loading) return "Loading...";
-          if (error) return `Error! ${error.message}`;
-          return (
+    return (
 
-<Table id="table" class="table table-bordered table-dark" onChange={getClients}>
-{data.allClients.map(client =>(
-  <thead>
-              <tr>
-                <th>#</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Email</th>
-                <th>Edit</th>
-                <th>Delete</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>{client.id}</td>
-                <td>{client.firstName}</td>
-                <td>{client.lastName}</td>
-                <td>{client.email}</td>
-                <td>
-              
-               
-                </td>
-                <td> 
-                  
-                  <a href="#" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-trash"></span>
-                </a></td>
-              </tr>
-            </tbody>
-))}
-</Table>            
-          );
-        }}
-      </Query>
+
+
+      <Table id="table" class="table table-bordered table-dark" >
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+
+
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Mhd</td>
+            <td>Bwb</td>
+            <td>mhd@bwb</td>
+
+            <td>
+              <a href="#" class="btn btn-info btn-lg">
+                <span class="glyphicon glyphicon-pencil"></span>
+              </a>
+            </td>
+            <td>
+
+              <a href="#" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-trash"></span>
+              </a></td>
+          </tr>
+        </tbody>
+ </Table>
     );
-
-   
-
-   
   }
 }
+   
 
-export default EditClients
+   
+
+   
+
+
+export default AllTable

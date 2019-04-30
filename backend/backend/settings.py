@@ -129,5 +129,5 @@ GRAPHENE = {
 
 #Connect it to frontend 
 CORS_ORIGIN_WHITELIST = (
-'localhost:3000/'
+'localhost:3000',
 )

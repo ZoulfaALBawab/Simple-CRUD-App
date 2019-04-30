@@ -3,21 +3,21 @@ import * as serviceWorker from './serviceWorker';
 import ApolloClient from "apollo-boost";
 import React from "react";
 import { ApolloProvider } from "react-apollo";
-import EditClients from "../src/components/EditClients";
+import AllTable from "../src/components/AllTable";
 import AddClient from "../src/components/AddClient"
  import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
 const client = new ApolloClient({
-  uri: " http://127.0.0.1:8000/graphiql"
+  uri: " http://127.0.0.1:8000/graphql"
 });
 
 const App = () => (
   <ApolloProvider client={client}>
     <div>
        <AddClient / >
-       <EditClients />
+       <AllTable  />
     </div>
   </ApolloProvider>
 );
