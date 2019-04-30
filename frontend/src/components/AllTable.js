@@ -3,7 +3,11 @@ import './AllTable.css';
 import Table from 'react-bootstrap/Table';
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
-import { clientsQuery } from '../queriesAndMutstions/clients'
+import ViewClient from "./ViewClient";
+import UpdateClient from "./UpdateClient";
+import DeleteClient from "./DeleteClient";
+
+
 
 class AllTable extends React.Component {
 
@@ -29,11 +33,12 @@ class AllTable extends React.Component {
 
         <tbody>
           <tr>
-            <td>1</td>
-            <td>Mhd</td>
-            <td>Bwb</td>
-            <td>mhd@bwb</td>
-
+            <div  onChange={this.viewClients}>
+            <td>{this.client.id}</td>
+            <td>{this.client.firstName}</td>
+            <td>{this.client.lastName}</td>
+            <td>{this.client.email}</td>
+            </div>
             <td>
               <a href="#" class="btn btn-info btn-lg">
                 <span class="glyphicon glyphicon-pencil"></span>
